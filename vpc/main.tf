@@ -22,3 +22,11 @@ resource "aws_subnet" "fabien_sn_private" {
   cidr_block        = "172.23.10.0/24"
   availability_zone = "${var.region}b"
 }
+
+resource "aws_internet_gateway" "fabien_gw" {
+  vpc_id = "${aws_vpc.vpc_fabien.id}"
+
+  tags {
+    Name = "${var.project_name}_gw"
+  }
+}
