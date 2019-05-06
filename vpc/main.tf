@@ -15,12 +15,20 @@ resource "aws_subnet" "fabien_sn_public" {
   vpc_id            = "${aws_vpc.vpc_fabien.id}"
   cidr_block        = "172.23.1.0/24"
   availability_zone = "${var.region}a"
+
+  tags {
+    Name = "${var.project_name}_sn_public"
+  }
 }
 
 resource "aws_subnet" "fabien_sn_private" {
   vpc_id            = "${aws_vpc.vpc_fabien.id}"
   cidr_block        = "172.23.10.0/24"
   availability_zone = "${var.region}b"
+
+  tags {
+    Name = "${var.project_name}_sn_private"
+  }
 }
 
 resource "aws_internet_gateway" "fabien_gw" {
