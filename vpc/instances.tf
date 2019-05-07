@@ -42,9 +42,7 @@ resource "aws_security_group" "fabien_sg_ec2" {
   }
 }
 
-
 resource "aws_network_interface_sg_attachment" "sg_attachment" {
   security_group_id    = "${aws_security_group.fabien_sg_ec2.id}"
   network_interface_id = "${aws_instance.fabien_instance_web.primary_network_interface_id}"
 }
-
