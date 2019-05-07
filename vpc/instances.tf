@@ -3,6 +3,8 @@ resource "aws_instance" "fabien_instance_web" {
   instance_type = "t2.micro"
   subnet_id     = "${aws_subnet.fabien_sn_public.id}"
 
+  key_name = "gregoire"
+
   tags = {
     Name = "fabien_ec2"
   }
